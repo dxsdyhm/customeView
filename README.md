@@ -12,12 +12,9 @@
 
 * in your app build.gradle
 ```gradle
-allprojects {
-    repositories {
-    ...
-    maven { url 'https://jitpack.io' }
+    dependencies {
+        compile 'com.github.dxsdyhm:customeView:1.0'
     }
-}
 ```
 
 
