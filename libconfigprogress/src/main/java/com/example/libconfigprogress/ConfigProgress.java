@@ -30,7 +30,7 @@ public class ConfigProgress extends View {
     /**
      * 动画总时长
      */
-    public final static long duratime = 10 * 1000L;
+    public final static long duratime = 100 * 1000L;
     private Context context;
     /**
      * 圆环颜色
