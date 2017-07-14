@@ -1,4 +1,4 @@
-## 集成
+## 集成 [![](https://jitpack.io/v/dxsdyhm/customeView.svg)](https://jitpack.io/#dxsdyhm/customeView)
 
 * add some plugins in project  build.gradle like this
 ```gradle
