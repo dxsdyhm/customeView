@@ -75,6 +75,7 @@ public class ConfigProgress extends View {
     private float TextProgress;
     private ProgressAnimation animal;
     private CountDownTimer TextTimer;
+    private int mark;
 
     private RectF mRectF = new RectF();
 
@@ -144,9 +145,10 @@ public class ConfigProgress extends View {
 
             @Override
             public void onFinish() {
+                Log.e("dxsTest","onFinish"+TextProgress);
                 TextProgress = 1;
                 if (listner != null) {
-                    listner.onFinish(ConfigProgress.this);
+                    listner.onFinish(ConfigProgress.this,mark);
                 }
             }
         };
@@ -176,7 +178,7 @@ public class ConfigProgress extends View {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         if (listner != null) {
-            listner.onFinish(this);
+            listner.onFinish(this,mark);
         }
     }
 
@@ -327,6 +329,20 @@ public class ConfigProgress extends View {
         return Math.round(TextProgress * 100);
     }
 
+    /**
+     * 设置进度
+     * @param progress
+     * @param mark
+     */
+    public void setProgress(int progress,int mark){
+        TextProgress=(float)progress/100;
+        this.mark=mark;
+        Log.e("dxsTest","progress:"+progress+"mark:"+mark);
+        if(progress>=100&&TextTimer!=null){
+            TextTimer.onFinish();
+        }
+    }
+
     private ProgressAnimation.AnimationProgressListner circleListner = new ProgressAnimation.AnimationProgressListner() {
         @Override
         public void applyTransformation(float interpolatedTime, Transformation t) {
@@ -337,7 +353,7 @@ public class ConfigProgress extends View {
 
     private ProgressListner listner=new ProgressListner() {
         @Override
-        public void onFinish(ConfigProgress configProgress) {
+        public void onFinish(ConfigProgress configProgress, int mark) {
             //Empty
         }
     };

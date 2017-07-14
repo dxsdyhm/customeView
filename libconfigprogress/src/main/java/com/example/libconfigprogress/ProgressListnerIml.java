@@ -9,6 +9,6 @@ import android.view.View;
 public interface ProgressListnerIml<T extends ConfigProgress> {
     void onStart(T t);
     void onPause(T t);
-    void onFinish(T t);
+    void onFinish(T t,int mark);
     void onClear(T t);
 }

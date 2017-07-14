@@ -23,15 +23,24 @@ public class MainActivity extends AppCompatActivity {
         progress.setProgressListner(new ProgressListner() {
 
             @Override
-            public void onFinish(ConfigProgress configProgress) {
+            public void onFinish(ConfigProgress configProgress,int mark) {
+                if(mark==0){
+                    Toast.makeText(configProgress.getContext(),"超市",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(configProgress.getContext(),"成功",Toast.LENGTH_LONG).show();
+                }
                 Toast.makeText(configProgress.getContext(),"结束",Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onStart(ConfigProgress view) {
+                view.setSpeed((float) 0.5);
                 super.onStart(view);
-                Toast.makeText(view.getContext(),"onStart",Toast.LENGTH_LONG).show();
+                Toast.makeText(view.getContext(),"开始",Toast.LENGTH_LONG).show();
             }
         });
+        progress.setProgress(100,1);
+        progress.setProgress(100,0);
     }
+
 }
