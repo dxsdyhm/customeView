@@ -30,7 +30,7 @@ public class ConfigProgress extends View {
     /**
      * 动画总时长
      */
-    public final static long duratime = 100 * 1000L;
+    public long duratime = 100 * 1000L;
     private Context context;
     /**
      * 圆环颜色
@@ -295,6 +295,15 @@ public class ConfigProgress extends View {
     public void setSpeed(float speed) {
         this.speed = speed;
     }
+
+    public long getDuratime() {
+        return duratime;
+    }
+
+    public void setDuratime(long duratime) {
+        this.duratime = duratime;
+    }
+
     //获取显示文本
     private String getPrecent() {
         return "" + getProgress() + "%";
