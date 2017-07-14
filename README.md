@@ -31,4 +31,4 @@ allprojects {
 ```
 
 ## 效果图
-
+[](https://github.com/dxsdyhm/customeView/blob/master/device-2017-07-14-153953.png)
