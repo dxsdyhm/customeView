@@ -12,4 +12,9 @@
        android:layout_height="63dp"
        android:layout_centerInParent="true"/>
 
+   <com.example.libconfigprogress.ConfigProgressRing
+       android:layout_below="@+id/view_test"
+       android:layout_width="63dp"
+       android:layout_height="63dp" />
+
 </RelativeLayout>

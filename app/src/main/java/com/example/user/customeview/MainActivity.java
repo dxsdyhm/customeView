@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(view.getContext(),"开始",Toast.LENGTH_LONG).show();
             }
         });
-        progress.setProgress(100,1);
-        progress.setProgress(100,0);
     }
 
 }
