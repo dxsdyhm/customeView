@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.libconfigprogress.ConfigProgress;
+import com.example.libconfigprogress.ConfigProgressRing;
 import com.example.libconfigprogress.ProgressListner;
+import com.example.libconfigprogress.Utils;
 
 public class MainActivity extends AppCompatActivity {
     ConfigProgress progress;
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        setContentView(new ConfigProgressRing(this, Utils.dip2px(this,66),Utils.dip2px(this,66)));
         initUI();
     }
 
