@@ -1,5 +1,6 @@
 package com.example.user.customeview;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,9 +17,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        setContentView(new ConfigProgressRing(this, Utils.dip2px(this,66),Utils.dip2px(this,66)));
-        initUI();
+//        setContentView(R.layout.activity_main);
+        final ConfigProgressRing ring=new ConfigProgressRing(this, Utils.dip2px(this,66),Utils.dip2px(this,66));
+        ring.setProgrssType(ConfigProgressRing.PROGRESSTYPE_MULTI);
+        setContentView(ring);
+        new CountDownTimer(100 * 1000L, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int progress= (int) (((float)millisUntilFinished/100000)*100);
+                //ring.setProgress(progress,0);
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        };
+//        initUI();
     }
 
     private void initUI() {

@@ -85,6 +85,9 @@ public class ConfigProgressRing extends ConfigProgress {
     private int mark;
     private RectF mRectF = new RectF();
     private SweepGradient ring;
+    public static final int PROGRESSTYPE_AUTO=0;
+    public static final int PROGRESSTYPE_MULTI=1;
+    private int ProgrssType=PROGRESSTYPE_AUTO;
 
     //圆环颜色
     private static int[] doughnutColors = new int[]{
@@ -127,6 +130,7 @@ public class ConfigProgressRing extends ConfigProgress {
             text_color = t.getColor(R.styleable.configprogress_configprogress_text_color, DefaultColor);
             text_size = t.getDimensionPixelSize(R.styleable.configprogress_configprogress_text_size, text_size);
             speed=t.getInt(R.styleable.configprogress_configprogress_circle_speed,1);
+            ProgrssType=t.getInt(R.styleable.configprogress_configprogress_type,0);
             t.recycle();
         } catch (Exception e) {
             e.printStackTrace();
@@ -197,7 +201,11 @@ public class ConfigProgressRing extends ConfigProgress {
         if (animal == null || TextTimer == null) {
             initAnimal();
         }
-        TextTimer.start();
+        if(ProgrssType==PROGRESSTYPE_AUTO){
+            TextTimer.start();
+        }else{
+            //Empty
+        }
         this.startAnimation(animal);
     }
 
@@ -342,6 +350,14 @@ public class ConfigProgressRing extends ConfigProgress {
 
     public void setDuratime(long duratime) {
         this.duratime = duratime;
+    }
+
+    public int getProgrssType() {
+        return ProgrssType;
+    }
+
+    public void setProgrssType(int progrssType) {
+        ProgrssType = progrssType;
     }
 
     //获取显示文本

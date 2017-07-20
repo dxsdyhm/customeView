@@ -8,5 +8,6 @@
         <attr name="configprogress_text_color" format="color"></attr>
         <attr name="configprogress_text_size" format="dimension"></attr>
         <attr name="configprogress_circle_speed" format="integer"></attr>
+        <attr name="configprogress_type" format="integer"></attr>
     </declare-styleable>
 </resources>
