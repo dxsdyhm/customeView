@@ -181,6 +181,7 @@ public class ConfigProgressRing extends ConfigProgress {
                 if (listner != null) {
                     listner.onFinish(ConfigProgressRing.this,mark);
                 }
+                listner=null;
             }
         };
     }
@@ -215,6 +216,7 @@ public class ConfigProgressRing extends ConfigProgress {
         if (listner != null) {
             listner.onFinish(this,mark);
         }
+        listner=null;
     }
 
     /**
