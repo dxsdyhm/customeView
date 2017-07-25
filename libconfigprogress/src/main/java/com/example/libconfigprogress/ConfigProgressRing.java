@@ -87,7 +87,10 @@ public class ConfigProgressRing extends ConfigProgress {
     private SweepGradient ring;
     public static final int PROGRESSTYPE_AUTO=0;
     public static final int PROGRESSTYPE_MULTI=1;
+    public static final int TEXTTYPE_TEXT=0;
+    public static final int TEXTTYPE_NONE=1;
     private int ProgrssType=PROGRESSTYPE_AUTO;
+    private int TextType=TEXTTYPE_TEXT;
 
     //圆环颜色
     private static int[] doughnutColors = new int[]{
@@ -262,13 +265,22 @@ public class ConfigProgressRing extends ConfigProgress {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.save();
-        canvas.rotate(-progress*360,mCenterx,mCentery);
-        drawRing(canvas);
-        drawCircle(canvas,0,ring_w/2);
-        drawCircle(canvas,0.5f,ring_w/2);
-        canvas.restore();
-        DrawText(canvas, getPrecent());
+        if(TextType==TEXTTYPE_TEXT){
+            canvas.save();
+            canvas.rotate(-progress*360,mCenterx,mCentery);
+            drawRing(canvas);
+            drawCircle(canvas,0,ring_w/2);
+            drawCircle(canvas,0.5f,ring_w/2);
+            canvas.restore();
+            DrawText(canvas, getPrecent());
+        }else if(TextType==TEXTTYPE_NONE){
+            canvas.rotate(-progress*360,mCenterx,mCentery);
+            drawRing(canvas);
+            drawCircle(canvas,0,ring_w/2);
+            drawCircle(canvas,0.5f,ring_w/2);
+        }else{
+            Log.e("ConfigProgressRing","TextType = "+TextType);
+        }
     }
 
     /**
@@ -360,6 +372,14 @@ public class ConfigProgressRing extends ConfigProgress {
 
     public void setProgrssType(int progrssType) {
         ProgrssType = progrssType;
+    }
+
+    public int getTextType() {
+        return TextType;
+    }
+
+    public void setTextType(int textType) {
+        TextType = textType;
     }
 
     //获取显示文本
