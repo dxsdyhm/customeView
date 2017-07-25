@@ -147,11 +147,11 @@ public class ConfigProgress extends View {
             public void onFinish() {
                 Log.e("dxsTest","onFinish"+TextProgress);
                 TextProgress = 1;
+                ConfigProgress.this.clearAnimation();
                 if (listner != null) {
                     listner.onFinish(ConfigProgress.this,mark);
                 }
                 listner=null;
-                clear();
             }
         };
     }
