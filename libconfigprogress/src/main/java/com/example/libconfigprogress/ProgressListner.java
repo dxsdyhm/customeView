@@ -6,19 +6,19 @@ import android.view.View;
  * Created by USER on 2017/7/14.
  */
 
-public abstract class ProgressListner implements ProgressListnerIml{
+public abstract  class ProgressListner<E extends ConfigProgress> implements ProgressListnerIml<E>{
     @Override
-    public void onStart(ConfigProgress view) {
+    public void onStart(E view) {
         view.start();
     }
 
     @Override
-    public void onPause(ConfigProgress view) {
+    public void onPause(E view) {
         view.pause();
     }
 
     @Override
-    public void onClear(ConfigProgress view) {
+    public void onClear(E view) {
         view.clear();
     }
 }
