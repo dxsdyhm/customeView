@@ -150,6 +150,8 @@ public class ConfigProgress extends View {
                 if (listner != null) {
                     listner.onFinish(ConfigProgress.this,mark);
                 }
+                listner=null;
+                clear();
             }
         };
     }
@@ -180,6 +182,7 @@ public class ConfigProgress extends View {
         if (listner != null) {
             listner.onFinish(this,mark);
         }
+        listner=null;
     }
 
     /**
